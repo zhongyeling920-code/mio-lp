@@ -458,3 +458,7 @@ img.mio-img-err{visibility:hidden}
   .mio-lp.mio-js .mio-fade{opacity:1;transform:none;transition:none}
   .mio-float{transition:none}
 }
+
+@media (max-width:480px){
+  .mio-lp{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+}
