@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500&display=swap');
+body{background-color:#0d0b0e}
+
+.mio-lp{
+  --mio-sumi:#121013;
+  --mio-sumi2:#1a1714;
+  --mio-kinari:#f0e8d8;
+  --mio-sub:#b8a98e;
+  --mio-gold:#E7C24B;
+  --mio-green:#06C755;
+  --mio-ph:#1c1a17;
+}
+.mio-lp{margin:0;padding:0;box-sizing:border-box}
+:where(.mio-lp *){margin:0;padding:0;box-sizing:border-box}
+:where(.mio-lp) section,:where(.mio-lp) div,:where(.mio-lp) p,:where(.mio-lp) h1,:where(.mio-lp) h2,:where(.mio-lp) h3,:where(.mio-lp) a,:where(.mio-lp) img,:where(.mio-lp) span,:where(.mio-lp) footer{margin:0;padding:0;border:0}
+
+.mio-lp{
+  font-family:"Shippori Mincho B1","Hiragino Mincho ProN",serif;
+  font-weight:400;
+  color:var(--mio-kinari);
+  background-color:#0d0b0e;
+  background-image:
+    radial-gradient(ellipse 120% 70% at 50% 0%, rgba(231,194,75,.03), transparent 55%),
+    repeating-linear-gradient(94deg, rgba(240,232,216,.012) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(4deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px);
+  line-height:2.0;
+  letter-spacing:.05em;
+}
+.mio-lp img{display:block;max-width:100%}
+.mio-lp a{color:inherit;text-decoration:none}
+
+/* ============ 柱（430pxカラム） ============ */
+.mio-page{
+  max-width:430px;
+  margin:0 auto;
+  background-color:var(--mio-sumi);
+  background-image:
+    radial-gradient(ellipse 90% 40% at 30% 8%, rgba(240,232,216,.028), transparent 60%),
+    radial-gradient(ellipse 70% 35% at 80% 70%, rgba(231,194,75,.018), transparent 60%),
+    repeating-linear-gradient(93deg, rgba(240,232,216,.014) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(2deg, rgba(0,0,0,.06) 0 1px, transparent 1px 4px);
+  border-left:1px solid rgba(240,232,216,.06);
+  border-right:1px solid rgba(240,232,216,.06);
+  overflow:hidden;
+  position:relative;
+}
+.mio-inner{padding-left:28px;padding-right:28px}
+.mio-body{font-size:17px;text-align:left}
+.mio-note{font-size:12px;color:var(--mio-sub);letter-spacing:.06em;line-height:1.9}
+
+/* ============ 質感（和紙タイル：texture.png＋CSS地紋の二層） ============ */
+.mio-washi{
+  background-color:var(--mio-sumi2);
+  background-image:
+    radial-gradient(ellipse 85% 55% at 18% 12%, rgba(240,232,216,.03), transparent 62%),
+    radial-gradient(ellipse 75% 50% at 88% 85%, rgba(231,194,75,.022), transparent 60%),
+    repeating-linear-gradient(92deg, rgba(240,232,216,.016) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(3deg, rgba(0,0,0,.07) 0 1px, transparent 1px 3px);
+}
+
+/* ============ 見出し・数字 ============ */
+.mio-h2{
+  font-size:24px;
+  font-weight:500;
+  letter-spacing:.16em;
+  line-height:1.8;
+  text-align:center;
+}
+.mio-h2::after{
+  content:"";
+  display:block;
+  width:44px;
+  height:1px;
+  margin:22px auto 0;
+  background:linear-gradient(to right, transparent, var(--mio-gold), transparent);
+}
+.mio-num{color:var(--mio-gold)}
+.mio-nb{display:inline-block}
+.mio-h2--fit{white-space:nowrap;margin-left:-20px;margin-right:-20px;font-size:22px}
+.mio-h2--fit14{letter-spacing:.1em}
+
+/* ============ CTAボタン ============ */
+.mio-cta{
+  display:block;
+  width:100%;
+  background:var(--mio-green);
+  color:#fff;
+  font-family:inherit;
+  font-weight:500;
+  font-size:18px;
+  letter-spacing:.1em;
+  text-align:center;
+  padding:19px 10px;
+  border-radius:8px;
+  box-shadow:0 4px 16px rgba(0,0,0,.4);
+}
+.mio-cta-note{
+  font-size:12px;
+  color:var(--mio-sub);
+  text-align:center;
+  letter-spacing:.12em;
+  margin-top:12px;
+}
+
+/* ============ 写真（裁ち落とし・墨に溶かす） ============ */
+.mio-photo{position:relative;background:var(--mio-ph);overflow:hidden}
+.mio-photo img{width:100%;height:100%;object-fit:cover}
+.mio-fv-photo img,
+.mio-s3-photo img,
+.mio-photo img,
+.mio-s6-photo img,
+.mio-s8-bg img{
+  filter:sepia(.14) saturate(.78) brightness(.94) contrast(1.03);
+}
+img.mio-img-err{visibility:hidden}
+
+/* ============ ① FV ============ */
+.mio-fv{position:relative;min-height:100svh;display:flex;flex-direction:column}
+.mio-fv-photo{
+  position:relative;
+  width:100%;
+  height:58svh;
+  background:var(--mio-ph);
+}
+.mio-fv-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.mio-fv-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(18,16,19,.35) 0%, transparent 22%, transparent 46%, rgba(18,16,19,.55) 72%, var(--mio-sumi) 98%),
+    radial-gradient(ellipse 120% 60% at 50% 110%, rgba(231,194,75,.06), transparent 60%);
+}
+.mio-fv-body{
+  position:relative;
+  margin-top:-18svh;
+  padding:0 28px 44px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.mio-fv-title{
+  font-weight:500;
+  text-align:center;
+  line-height:1;
+  margin:0 -28px;
+}
+.mio-fv-t1{
+  display:block;
+  font-size:clamp(26px, 8.8vw, 38px);
+  letter-spacing:.6em;
+  text-indent:.6em;
+  color:var(--mio-gold);
+  margin-bottom:20px;
+  text-shadow:0 1px 12px rgba(18,16,19,.8);
+}
+.mio-fv-t2{
+  display:block;
+  font-size:clamp(74px, 22.6vw, 96px);
+  letter-spacing:.03em;
+  white-space:nowrap;
+  color:var(--mio-kinari);
+  text-shadow:0 2px 18px rgba(18,16,19,.85);
+}
+.mio-fv-lead{
+  font-size:16px;
+  line-height:2.2;
+  letter-spacing:.05em;
+  text-align:center;
+  margin-top:32px;
+}
+.mio-fv-lead .mio-lead-main{
+  display:block;
+  font-size:21px;
+  font-weight:500;
+  letter-spacing:.14em;
+  margin-bottom:10px;
+}
+.mio-fv-limit{
+  font-size:17px;
+  letter-spacing:.14em;
+  text-align:center;
+  color:var(--mio-kinari);
+  margin-top:34px;
+}
+.mio-fv-limit .mio-num{font-size:23px}
+.mio-fv .mio-cta{margin-top:20px}
+
+/* ============ ② こんな想いを ============ */
+.mio-s2{padding-top:150px;padding-bottom:104px}
+.mio-s2 .mio-list{margin-top:52px}
+.mio-s2 .mio-list p{
+  font-size:17px;
+  line-height:1.9;
+  padding:24px 2px;
+  border-bottom:1px solid rgba(231,194,75,.18);
+}
+.mio-s2 .mio-list p:first-child{border-top:1px solid rgba(231,194,75,.18)}
+.mio-s2 .mio-close{margin-top:46px;font-size:15px;color:var(--mio-sub);line-height:2.1}
+
+/* ============ ③ 澪について ============ */
+.mio-s3{padding-top:96px;padding-bottom:112px;position:relative}
+.mio-s3-photo{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/4;
+  background:var(--mio-ph);
+}
+.mio-s3-photo img{width:100%;height:100%;object-fit:cover}
+.mio-s3-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, var(--mio-sumi) 0%, transparent 18%, transparent 55%, var(--mio-sumi) 100%);
+}
+.mio-s3-name{
+  position:absolute;
+  right:30px;
+  top:110px;
+  display:flex;
+  flex-direction:row-reverse;
+  gap:14px;
+  align-items:flex-start;
+  z-index:2;
+}
+.mio-s3-mei{
+  writing-mode:vertical-rl;
+  font-size:56px;
+  font-weight:500;
+  letter-spacing:.2em;
+  text-shadow:0 1px 14px rgba(18,16,19,.9);
+}
+.mio-s3-katagaki{
+  writing-mode:vertical-rl;
+  font-size:14px;
+  letter-spacing:.42em;
+  color:var(--mio-gold);
+  padding-top:8px;
+  text-shadow:0 1px 10px rgba(18,16,19,.9);
+}
+.mio-s3-text{margin-top:-40px;position:relative;z-index:2}
+.mio-s3-text .mio-h2{margin-bottom:40px}
+.mio-s3-text p+p{margin-top:26px}
+
+/* ============ ④ お伝えすること ============ */
+.mio-s4{padding-top:128px;padding-bottom:110px}
+.mio-s4 .mio-item{margin-top:64px}
+.mio-s4 .mio-item:first-of-type{margin-top:60px}
+.mio-item-head{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.mio-item-num{
+  font-size:30px;
+  color:var(--mio-gold);
+  line-height:1;
+  flex:none;
+}
+.mio-item-title{
+  font-size:20px;
+  font-weight:500;
+  letter-spacing:.12em;
+  line-height:1.6;
+}
+.mio-item-head::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(to right, rgba(231,194,75,.35), transparent);
+}
+.mio-s4 .mio-item-row{
+  display:flex;
+  gap:18px;
+  margin-top:22px;
+  align-items:flex-start;
+}
+.mio-s4 .mio-item-row .mio-photo{
+  flex:none;
+  width:92px;
+  aspect-ratio:1/1;
+}
+.mio-s4 .mio-item-row .mio-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  box-shadow:inset 0 0 24px 10px var(--mio-sumi);
+}
+.mio-s4 .mio-item-row .mio-body{flex:1;line-height:1.95}
+.mio-s4-close{
+  margin-top:76px;
+  padding:30px 24px;
+  border-top:1px solid rgba(231,194,75,.25);
+  border-bottom:1px solid rgba(231,194,75,.25);
+  font-size:15px;
+  line-height:2.2;
+  color:var(--mio-sub);
+  text-align:center;
+}
+
+/* ============ ⑤ お受け取りになった方から ============ */
+.mio-s5{padding-top:100px;padding-bottom:96px}
+.mio-voice{margin-top:56px;position:relative}
+.mio-voice+.mio-voice{margin-top:72px}
+.mio-voice-label{
+  writing-mode:vertical-rl;
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:2;
+  font-size:13px;
+  letter-spacing:.22em;
+  color:var(--mio-gold);
+  border-right:1px solid rgba(231,194,75,.35);
+  padding-right:10px;
+  height:auto;
+}
+.mio-voice-quote{
+  font-size:18px;
+  font-weight:500;
+  line-height:1.9;
+  letter-spacing:.06em;
+  padding-right:48px;
+  min-height:200px;
+  display:flex;
+  align-items:center;
+}
+.mio-voice-shot{
+  margin-top:24px;
+  width:100%;
+  padding:10px;
+  background:rgba(240,232,216,.045);
+  border:1px solid rgba(240,232,216,.12);
+  border-radius:12px;
+}
+.mio-voice-shot img{width:100%;height:auto;display:block;border-radius:6px}
+.mio-s5 .mio-note{margin-top:52px}
+
+/* ============ ⑥ どう変わるか ============ */
+.mio-s6{position:relative;padding-bottom:118px}
+.mio-s6-photo{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/4;
+  background:var(--mio-ph);
+}
+.mio-s6-photo img{width:100%;height:100%;object-fit:cover}
+.mio-s6-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, var(--mio-sumi) 2%, rgba(18,16,19,.25) 30%, rgba(18,16,19,.55) 62%, var(--mio-sumi) 96%);
+}
+.mio-s6-content{position:relative;z-index:2;margin-top:-120px}
+.mio-s6 .mio-item{margin-top:56px}
+.mio-s6 .mio-item .mio-body{margin-top:18px;padding-left:46px;line-height:1.95}
+
+/* ============ ⑦ 安心して ============ */
+.mio-s7{padding-top:120px;padding-bottom:120px}
+.mio-s7 .mio-promise{margin-top:56px}
+.mio-s7 .mio-promise+.mio-promise{margin-top:44px}
+.mio-promise-title{
+  font-size:17px;
+  font-weight:500;
+  letter-spacing:.1em;
+  line-height:1.8;
+  padding-left:16px;
+  border-left:1px solid var(--mio-gold);
+}
+.mio-promise-body{margin-top:14px;padding-left:17px;font-size:15px;color:var(--mio-sub);line-height:2.0}
+
+/* ============ ⑧ 最終CTA ============ */
+.mio-s8{position:relative;padding-top:170px;padding-bottom:96px}
+.mio-s8-bg{position:absolute;inset:0;background:var(--mio-ph)}
+.mio-s8-bg img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.mio-s8-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, var(--mio-sumi) 0%, rgba(18,16,19,.72) 30%, rgba(18,16,19,.82) 70%, var(--mio-sumi) 100%);
+}
+.mio-s8-content{position:relative;z-index:2}
+.mio-s8 .mio-h2{
+  font-size:19px;
+  letter-spacing:.08em;
+  line-height:2.0;
+  white-space:nowrap;
+  margin-left:-20px;
+  margin-right:-20px;
+}
+.mio-s8-text{margin-top:44px}
+.mio-s8-text p{font-size:16px;line-height:2.2}
+.mio-s8-text p+p{margin-top:22px}
+.mio-s8-text .mio-num{letter-spacing:.08em}
+.mio-s8 .mio-cta{margin-top:52px}
+.mio-s8-after{
+  margin-top:64px;
+  border-top:1px solid rgba(231,194,75,.25);
+  padding-top:36px;
+}
+.mio-s8-after-title{
+  font-size:15px;
+  letter-spacing:.24em;
+  color:var(--mio-gold);
+  text-align:center;
+}
+.mio-s8-after-body{
+  margin-top:14px;
+  font-size:15px;
+  line-height:2.1;
+  text-align:center;
+  color:var(--mio-kinari);
+}
+
+/* ============ フッター ============ */
+.mio-footer{
+  padding:56px 28px 120px;
+  border-top:1px solid rgba(240,232,216,.08);
+  text-align:center;
+}
+.mio-footer-links{font-size:12px;color:var(--mio-sub);letter-spacing:.08em}
+.mio-footer-links a{border-bottom:1px solid rgba(184,169,142,.4);padding-bottom:1px}
+.mio-copyright{margin-top:20px;font-size:11px;color:var(--mio-sub);letter-spacing:.14em}
+
+/* ============ 追従ボタン ============ */
+.mio-float{
+  position:fixed;
+  left:50%;
+  bottom:14px;
+  transform:translate(-50%, 90px);
+  width:min(398px, calc(100% - 32px));
+  z-index:50;
+  opacity:0;
+  transition:transform .45s ease, opacity .45s ease;
+  pointer-events:none;
+}
+.mio-float.mio-float--on{
+  transform:translate(-50%, 0);
+  opacity:1;
+  pointer-events:auto;
+}
+.mio-float .mio-cta{
+  font-size:16px;
+  padding:16px 10px;
+  box-shadow:0 6px 20px rgba(0,0,0,.5);
+}
+
+/* ============ フェードイン ============ */
+.mio-lp.mio-js .mio-fade{opacity:0;transform:translateY(16px)}
+.mio-lp.mio-js .mio-fade.mio-fade--in{
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity .8s ease, transform .8s ease;
+}
+@media (prefers-reduced-motion: reduce){
+  .mio-lp.mio-js .mio-fade{opacity:1;transform:none;transition:none}
+  .mio-float{transition:none}
+}
